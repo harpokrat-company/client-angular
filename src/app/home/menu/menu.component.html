@@ -1,0 +1,12 @@
+<table class="table-responsive">
+  <thead>
+  <tr><th>MENU</th></tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let item of itemsList">
+    <td>
+      <a [routerLink]="item.route"><fa [name]="item.icon"></fa> {{ item.name }}</a>
+    </td>
+  </tr>
+  </tbody>
+</table>

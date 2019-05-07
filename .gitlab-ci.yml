@@ -1,0 +1,21 @@
+image: weboaks/node-karma-protractor-chrome
+
+before_script:
+  - yarn config set //npm-registry.harpokrat.net/:_authToken ${NPM_AUTH_TOKEN}
+  - yarn
+
+cache:
+  paths:
+    - node_modules/
+
+lint:
+  script:
+    - yarn run lint
+
+test:
+  script:
+    - yarn run test
+
+build:
+  script:
+    - yarn run build

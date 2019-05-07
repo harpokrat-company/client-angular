@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <h1 class="col-md-8">{{passport.name}}</h1>
+      <a [href]="passport.domain"><i>{{passport.domain}}<fa class="external-link-icon" name="external-link"></fa></i></a>
+    </div>
+    <img class="col-md-4 icon" [src]="passport.icon" [alt]="passport.name"/>
+  </div>
+  <div class="row">
+  </div>
+  <div class="row">
+    <div class="col-md-11">
+      <input type="password" class="form-control" [disabled]="true" [ngModel]="passport.secret"/>
+    </div>
+    <button class="col-md-1 btn-success">
+      <fa name="copy" (click)="copyText(passport.secret)"></fa>
+    </button>
+  </div>
+</div>

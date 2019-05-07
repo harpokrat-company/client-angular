@@ -1,3 +1,0 @@
-[submodule "src/style/boostrap"]
-	path = src/style/boostrap
-	url = git@gitlab.com:harpokrat/bootstrap.git
