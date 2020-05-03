@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-home',
@@ -6,11 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
-  menuOpen = true;
-
-  constructor() { }
-
-  onMenuClick() {
-    this.menuOpen = !this.menuOpen;
+  constructor() {
   }
 }

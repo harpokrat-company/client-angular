@@ -1,0 +1,15 @@
+<div *ngIf="selectedObservable | async as selected" class="bg-light wrapper">
+  <div class="d-flex flex-row">
+    <div class="flex-grow-1 p-3 text-center selector" *ngFor="let sentence of sentences"
+         (click)="select(sentence)"
+         [class.active]="selected === sentence">
+      <i class="material-icons mb-0">{{sentence.icon}}</i>
+    </div>
+  </div>
+  <div class="text-center p-5">
+    <h5 class="mb-0">{{selected.text}}</h5>
+  </div>
+  <div class="progress" *ngIf="progressObservable | async as progress">
+    <div class="progress-bar" [ngStyle]="{'width': progress * 100 + '%'}"></div>
+  </div>
+</div>

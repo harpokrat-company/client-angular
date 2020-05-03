@@ -13,10 +13,10 @@ export class PasswordDeleteComponent implements OnInit {
               private tempService: TempService) {
   }
 
-  public password$;
+  public $password;
 
   public getPassword(passwordId) {
-    this.password$ = this.tempService.getPassword(passwordId);
+    this.$password = this.tempService.getPassword(passwordId);
   }
 
   ngOnInit() {

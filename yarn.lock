@@ -314,10 +314,10 @@
     lodash "^4.17.11"
     to-fast-properties "^2.0.0"
 
-"@harpokrat/api@^0.0.2":
-  version "0.0.2"
-  resolved "https://npm-registry.harpokrat.net/@harpokrat%2fapi/-/api-0.0.2.tgz#047e1b2226e31064dc63bba05f226e825861cc97"
-  integrity sha512-ApxLb8p8bxU9KYSpKcL5I1rFoRgGYD/Z7nSRzELOl4T6HyK6SZ8NhrRCuvzA8W7P6vGO6+XQ1m6vywXg9TBYPg==
+"@harpokrat/api@^0.0.5":
+  version "0.0.5"
+  resolved "https://npm-registry.harpokrat.net/@harpokrat%2fapi/-/api-0.0.5.tgz#28dfa7b2760eb21a7ed33f141bcd55788f96d304"
+  integrity sha512-YJASC1PVQ2tRpHu0vzEMOxU833Ea/B8upvzXj6FC/Gr4GBoNce6PYh/Qv6+XUMJloTT0y8UdhT3LfF0c+LACcA==
   dependencies:
     tslib "^1.9.0"
 

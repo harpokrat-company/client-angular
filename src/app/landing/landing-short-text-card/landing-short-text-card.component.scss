@@ -1,0 +1,24 @@
+@import "~@harpokrat/bootstrap/scss/harpokrat-variables";
+
+.selector {
+  border-bottom: 5px solid $progress-bg;
+  cursor: pointer;
+
+  transition: all .2s;
+
+  &:hover, &.active {
+    border-bottom: 5px solid $primary;
+  }
+
+  &:hover:not(.active) {
+    background-color: $progress-bg;
+  }
+}
+
+
+.progress {
+  height: 5px;
+  .progress-bar {
+    transition: none;
+  }
+}

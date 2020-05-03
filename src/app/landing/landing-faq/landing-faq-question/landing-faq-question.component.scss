@@ -1,0 +1,13 @@
+@import "~@harpokrat/bootstrap/scss/harpokrat-variables";
+
+.question-header {
+  padding-left: 0;
+  padding-right: 0;
+  color: $body-color;
+  font-weight: bold;
+
+  &:hover, &:focus {
+    color: $body-color;
+    text-decoration: none;
+  }
+}

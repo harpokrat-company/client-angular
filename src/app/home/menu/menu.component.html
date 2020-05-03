@@ -1,12 +1,17 @@
-<table class="table-responsive">
-  <thead>
-  <tr><th>MENU</th></tr>
-  </thead>
-  <tbody>
-  <tr *ngFor="let item of itemsList">
-    <td>
-      <a [routerLink]="item.route"><fa [name]="item.icon"></fa> {{ item.name }}</a>
-    </td>
-  </tr>
-  </tbody>
-</table>
+<div class="bg-dark h-100 menu text-center text-md-left d-flex flex-row flex-md-column">
+  <div class="bg-primary p-3 clickable">
+    <img src="/assets/img/hpk-small.svg" alt="logo" class="menu-logo">
+  </div>
+  <a [routerLink]="item.route" routerLinkActive="active" [title]="item.name"
+    [routerLinkActiveOptions]="{exact: item.exact}" class="menu-item text-nowrap"
+    *ngFor="let item of itemsList">
+    <i class="icon">{{item.icon}}</i>
+    <span class="d-none d-lg-inline ml-3">{{item.name}}</span>
+  </a>
+  <button
+    class="btn btn-link align-self-stretch mt-0 mt-md-auto ml-auto ml-md-0 mb-2 text-light"
+    (click)="logout()">
+    <i class="icon">exit_to_app</i>
+    <span class="ml-2 d-none d-lg-inline">logout</span>
+  </button>
+</div>

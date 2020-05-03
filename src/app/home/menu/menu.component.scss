@@ -1,0 +1,51 @@
+@import "~@harpokrat/bootstrap/scss/harpokrat-variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+
+.menu {
+  min-width: 56px;
+  text-align: left;
+
+  a.menu-item {
+
+  }
+
+  .menu-item {
+    display: block;
+    padding: $spacer;
+    color: $gray-400;
+    transition: all .2s;
+    box-sizing: border-box;
+    @include media-breakpoint-up(md) {
+      border-left: 4px solid $dark;
+      &:not(:last-child) {
+        border-bottom: 1px solid darken($gray-900, 5%);
+      }
+      &:not(:nth-child(2)) {
+        border-top: 1px solid lighten($dark, 5%);
+        &.active {
+          border-top-color: $gray-900;
+        }
+      }
+    }
+
+    &:hover:not(.active) {
+      border-left-color: $gray-900;
+    }
+
+    &.active, &:hover {
+      color: $gray-100;
+      background-color: $gray-900;
+    }
+
+    &.active {
+      border-left-color: $primary;
+    }
+  }
+
+  .menu-logo {
+    height: 1rem;
+    width: 1rem;
+  }
+
+}
+

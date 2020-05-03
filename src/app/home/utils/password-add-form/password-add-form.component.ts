@@ -1,6 +1,6 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Output} from '@angular/core';
 import {TempService} from '../../../../services/temp.service';
-import {PasswordService} from '@harpokrat/api';
+import {SecretService} from '@harpokrat/api';
 
 @Component({
   selector: 'app-password-add-form',
@@ -15,7 +15,8 @@ export class PasswordAddFormComponent {
   @Output() submited: EventEmitter<boolean> = new EventEmitter();
 
   constructor(private tempService: TempService,
-              private passwordService: PasswordService) { }
+              private passwordService: SecretService) {
+  }
 
   public onCancel() {
     this.canceled.emit(true);
@@ -30,7 +31,8 @@ export class PasswordAddFormComponent {
   public save(event: any) {
     this.tempService.addPassword(event).subscribe(
       password => this.onSuccess(password),
-      error => { /* TODO */ },
+      error => { /* TODO */
+      },
     );
     this.password = {};
   }

@@ -1,0 +1,15 @@
+<div class="row align-items-center" *ngFor="let text of texts; let i = index"
+     [class.mt-3]="i > 0" [class.mt-md-3]="i > 0">
+  <div
+    class="col-12 col-md-4 bg-primary text-light d-flex flex-column justify-content-center align-self-stretch order-0"
+    [ngClass]="{'order-md-1': i % 2 === 1, 'order-md-0': i % 2 === 0}">
+    <div class="p-2 p-md-5">
+      <h5 class="text-center mb-0">{{text.title}}</h5>
+    </div>
+  </div>
+  <div class="col-12 col-md-8 order-1" [ngClass]="{'order-md-1': i % 2 === 0, 'order-md-0': i % 2 === 1}">
+    <div class="px-2 py-4 px-md-5 py-md-5 text-center text-md-left">
+      <span>{{text.text}}</span>
+    </div>
+  </div>
+</div>

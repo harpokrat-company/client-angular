@@ -1,4 +1,5 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input} from '@angular/core';
+import {TempPassword} from "../../../../services/temp-password";
 
 @Component({
   selector: 'app-passport-viewer',
@@ -7,7 +8,7 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class PassportViewerComponent {
 
-  @Input() passport;
+  @Input() passport: TempPassword;
 
   constructor() { }
 

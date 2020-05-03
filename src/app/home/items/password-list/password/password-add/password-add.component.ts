@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
@@ -7,8 +7,11 @@ import {ActivatedRoute, Router} from '@angular/router';
   styleUrls: ['./password-add.component.scss']
 })
 export class PasswordAddComponent {
-  constructor(private route: ActivatedRoute,
-              private router: Router) { }
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router
+  ) {
+  }
 
   public cancel() {
     this.router.navigate(['..'], {relativeTo: this.route}).then();

@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component} from '@angular/core';
+import {AuthService} from "@harpokrat/api";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-menu',
@@ -6,17 +8,31 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./menu.component.scss']
 })
 export class MenuComponent {
+
   itemsList = [
     {
       name: 'Home',
-      route: '',
-      icon: 'home'
+      route: '/app/',
+      icon: 'home',
+      exact: true,
     },
     {
       name: 'My Passwords',
-      route: 'passwords',
-      icon: 'lock'
+      route: '/app/passwords',
+      icon: 'lock',
+      exact: false,
     }
   ];
+
+  constructor(
+    private readonly $authService: AuthService,
+    private readonly $router: Router
+  ) {
+  }
+
+  logout() {
+    this.$authService.token = null;
+    this.$router.navigate(['/login']).then();
+  }
 
 }

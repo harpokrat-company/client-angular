@@ -1,0 +1,13 @@
+<div>
+  <button
+    class="btn btn-link h5 question-header d-flex flex-row justify-content-center justify-content-md-start w-100 align-items-center text-center text-md-left"
+    (click)="toggleOpen()">
+    <i class="material-icons mr-3 d-none d-md-inline">
+      {{open ? 'expand_less' : 'expand_more'}}
+    </i>
+    <span>{{question.title}}</span>
+  </button>
+</div>
+<div class="collapse question-body mb-5 text-center text-md-left" [class.show]="open">
+  <div>{{question.answer}}</div>
+</div>

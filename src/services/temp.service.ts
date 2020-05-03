@@ -20,36 +20,22 @@ export class TempService {
       id: 0,
       name: 'Google',
       secret: 'bfqsdhfbqsjdbfqj',
-      domain: 'https://gitlab.com/users/sign_in',
-      icon: 'https://img.icons8.com/color/420/gitlab.png'
+      domain: 'https://google.com',
+      icon: 'https://google.com/favicon.ico'
     },
     {
       id: 1,
-      name: 'Mozilla',
-      secret: 'bfqsdhfbqsjdbfqj',
-      domain: 'https://gitlab.com/users/sign_in',
-      icon: 'https://img.icons8.com/color/420/gitlab.png'
-    },
-    {
-      id: 2,
-      name: 'Free',
-      secret: 'bfqsdhfbqsjdbfqj',
-      domain: 'https://gitlab.com/users/sign_in',
-      icon: 'https://img.icons8.com/color/420/gitlab.png'
-    },
-    {
-      id: 3,
       name: 'Gitlab',
       secret: 'bfqsdhfbqsjdbfqj',
       domain: 'https://gitlab.com/users/sign_in',
       icon: 'https://img.icons8.com/color/420/gitlab.png'
     },
     {
-      id: 4,
+      id: 2,
       name: 'Amazon',
       secret: 'bfqsdhfbqsjdbfqj',
-      domain: 'https://gitlab.com/users/sign_in',
-      icon: 'https://img.icons8.com/color/420/gitlab.png'
+      domain: 'https://amazon.com',
+      icon: 'https://amazon.com/favicon.ico'
     }
   ];
 

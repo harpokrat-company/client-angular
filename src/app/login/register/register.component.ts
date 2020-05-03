@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {User, UserService} from '@harpokrat/api';
 import {Router} from '@angular/router';
 
@@ -9,13 +9,13 @@ import {Router} from '@angular/router';
 })
 export class RegisterComponent {
 
-  constructor(private userService: UserService,
-              private router: Router) { }
+  constructor(
+    private userService: UserService,
+    private router: Router
+  ) {
+  }
 
-  register(user: User) {
-    this.userService.create(user).subscribe(
-      success => this.router.navigateByUrl('/login').then(),
-      error => { /* TODO */ }
-    );
+  register() {
+    this.router.navigateByUrl('/login').then();
   }
 }

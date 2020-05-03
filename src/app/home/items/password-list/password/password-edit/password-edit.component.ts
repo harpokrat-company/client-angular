@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, ParamMap, Router} from '@angular/router';
 import {TempService} from '../../../../../../services/temp.service';
 
@@ -8,14 +8,16 @@ import {TempService} from '../../../../../../services/temp.service';
   styleUrls: ['./password-edit.component.scss']
 })
 export class PasswordEditComponent implements OnInit {
+
   constructor(private route: ActivatedRoute,
               private router: Router,
-              private tempService: TempService) { }
+              private tempService: TempService) {
+  }
 
-  public password$;
+  public $password;
 
   public getPassword(passwordId) {
-    this.password$ = this.tempService.getPassword(passwordId);
+    this.$password = this.tempService.getPassword(passwordId);
   }
 
   ngOnInit() {
@@ -25,6 +27,6 @@ export class PasswordEditComponent implements OnInit {
   }
 
   public toShow() {
-    this.router.navigate(['../show'], { relativeTo: this.route });
+    this.router.navigate(['../show'], {relativeTo: this.route}).then();
   }
 }
