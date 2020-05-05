@@ -60,7 +60,7 @@
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "6kb"
+                  "maximumWarning": "500kb"
                 }
               ]
             }
@@ -143,5 +143,8 @@
       }
     }
   },
-  "defaultProject": "angular-web-client"
+  "defaultProject": "angular-web-client",
+  "cli": {
+    "analytics": false
+  }
 }
