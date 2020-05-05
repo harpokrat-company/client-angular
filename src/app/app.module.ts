@@ -16,8 +16,6 @@ import {PasswordDeleteFormComponent} from './home/utils/password-delete-form/pas
 import {PasswordAddFormComponent} from './home/utils/password-add-form/password-add-form.component';
 import {PasswordEditFormComponent} from './home/utils/password-edit-form/password-edit-form.component';
 import {PassportViewerComponent} from './home/utils/passport-viewer/passport-viewer.component';
-import {AngularFontAwesomeModule} from 'angular-font-awesome';
-import {NavbarModule} from 'angular-bootstrap-md';
 import {HarpokratModule} from '@harpokrat/api';
 import {environment} from '../environments/environment';
 import {LoginHomeComponent} from './login/login-home.component';
@@ -64,8 +62,6 @@ import { LandingFaqQuestionComponent } from './landing/landing-faq/landing-faq-q
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    AngularFontAwesomeModule,
-    NavbarModule,
     HarpokratModule.forRoot(
       environment.apiUrl, {loginRouterPath: '/login'}
     ),

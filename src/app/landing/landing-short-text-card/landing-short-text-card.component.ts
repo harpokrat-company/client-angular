@@ -49,7 +49,6 @@ export class LandingShortTextCardComponent implements OnDestroy, AfterContentIni
     this.$lastChange = Date.now();
     this.progressObservable = interval(10).pipe(
       map(() => (Date.now() - this.$lastChange) / this.$changeSpeed),
-      tap((t) => console.log(t)),
     );
     this.selectedObservable.pipe(
       switchMap((selected) => timer(5000).pipe(
