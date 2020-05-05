@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {TempPassword} from "../../../../services/temp-password";
+import {Secret} from "@harpokrat/hcl";
 
 @Component({
   selector: 'app-passport-viewer',
@@ -8,9 +8,10 @@ import {TempPassword} from "../../../../services/temp-password";
 })
 export class PassportViewerComponent {
 
-  @Input() passport: TempPassword;
+  @Input() passport: Secret;
 
-  constructor() { }
+  constructor() {
+  }
 
   public copyText(val: string) {
     const selBox = document.createElement('textarea');

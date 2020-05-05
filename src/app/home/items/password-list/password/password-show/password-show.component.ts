@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute, ParamMap, Router} from '@angular/router';
-import {TempService} from '../../../../../../services/temp.service';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
+import {Resource, SecretService} from "@harpokrat/api";
+import {Observable} from "rxjs";
+import {Secret} from "@harpokrat/hcl";
 
 @Component({
   selector: 'app-password-show',
@@ -8,14 +10,16 @@ import {TempService} from '../../../../../../services/temp.service';
   styleUrls: ['./password-show.component.scss']
 })
 export class PasswordShowComponent implements OnInit {
+
   constructor(private route: ActivatedRoute,
               private router: Router,
-              private tempService: TempService) { }
+              private secretService: SecretService) {
+  }
 
-  public password$;
+  public secret: Observable<Resource<Secret>>;
 
   public getPassword(passwordId) {
-    this.password$ = this.tempService.getPassword(passwordId);
+    this.secret = this.secretService.getReadableSecret(passwordId);
   }
 
   ngOnInit() {

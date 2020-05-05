@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {AuthService, ResourceIdentifier, SecretService} from "@harpokrat/api";
+import {AuthService, Resource, ResourceIdentifier, SecretService} from "@harpokrat/api";
 import {switchMap} from "rxjs/operators";
-import {HclwService} from "@harpokrat/hcl";
-import {combineLatest, of} from "rxjs";
+import {HclwService, Secret} from "@harpokrat/hcl";
+import {combineLatest, Observable, of} from "rxjs";
 
 @Component({
   selector: 'app-password-list',
@@ -18,24 +18,10 @@ export class PasswordListComponent implements OnInit {
   ) {
   }
 
-  public passwords$;
+  public secrets: Observable<Resource<Secret>[]>;
 
   public getPasswords() {
-    this.passwords$ = this.secretService.readAll({
-      filters: {
-        'owner.id': (this.$authService.currentUser as ResourceIdentifier).id,
-      }
-    }).pipe(
-      switchMap((secrets) => {
-        if (secrets.length > 0) {
-          return combineLatest(
-            secrets.map((s) => this.hclService.createSecret(this.$authService.key, s.attributes.content)),
-          );
-        } else {
-          return of([]);
-        }
-      }),
-    );
+    this.secrets = this.secretService.getManyReadableSecrets({});
   }
 
   ngOnInit() {
