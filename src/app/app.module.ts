@@ -30,6 +30,7 @@ import { LandingBigTextComponent } from './landing/landing-big-text/landing-big-
 import { LandingFaqComponent } from './landing/landing-faq/landing-faq.component';
 import { LandingFaqQuestionComponent } from './landing/landing-faq/landing-faq-question/landing-faq-question.component';
 import { SecureActionPageComponent } from './secure-action-page/secure-action-page.component';
+import { ProfileComponent } from './home/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import { SecureActionPageComponent } from './secure-action-page/secure-action-pa
     LandingBigTextComponent,
     LandingFaqComponent,
     LandingFaqQuestionComponent,
-    SecureActionPageComponent
+    SecureActionPageComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

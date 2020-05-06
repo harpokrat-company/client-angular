@@ -13,6 +13,7 @@ import {ForgotPasswordComponent} from './login/forget-password/forgot-password.c
 import {AuthGuard} from "@harpokrat/api";
 import {LandingComponent} from "./landing/landing.component";
 import {SecureActionPageComponent} from "./secure-action-page/secure-action-page.component";
+import {ProfileComponent} from "./home/profile/profile.component";
 
 const routes: Routes = [
   {
@@ -30,6 +31,9 @@ const routes: Routes = [
   },
   {
     path: 'app', component: HomeComponent, canActivate: [AuthGuard], children: [
+      {
+        path: '', component: ProfileComponent
+      },
       {
         path: 'passwords', component: PasswordListComponent, children: [
           {path: 'add', component: PasswordAddComponent},
