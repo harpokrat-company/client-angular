@@ -1,8 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {AuthService, Resource, ResourceIdentifier, SecretService} from "@harpokrat/api";
-import {switchMap} from "rxjs/operators";
-import {HclwService, Secret} from "@harpokrat/hcl";
-import {combineLatest, Observable, of} from "rxjs";
+import {Resource, SecretService} from "@harpokrat/api";
+import {Secret} from "@harpokrat/hcl";
+import {merge, Observable, of} from "rxjs";
 
 @Component({
   selector: 'app-password-list',
@@ -13,15 +12,16 @@ export class PasswordListComponent implements OnInit {
 
   constructor(
     private readonly secretService: SecretService,
-    private readonly hclService: HclwService,
-    private readonly $authService: AuthService,
   ) {
   }
 
   public secrets: Observable<Resource<Secret>[]>;
 
   public getPasswords() {
-    this.secrets = this.secretService.getManyReadableSecrets({});
+    this.secrets = merge(
+      of([]),
+      this.secretService.getManyReadableSecrets({})
+    );
   }
 
   ngOnInit() {

@@ -12,10 +12,14 @@ import {RegisterComponent} from './login/register/register.component';
 import {ForgotPasswordComponent} from './login/forget-password/forgot-password.component';
 import {AuthGuard} from "@harpokrat/api";
 import {LandingComponent} from "./landing/landing.component";
+import {SecureActionPageComponent} from "./secure-action-page/secure-action-page.component";
 
 const routes: Routes = [
   {
     path: '', component: LandingComponent,
+  },
+  {
+    path: 'secure-action', component: SecureActionPageComponent,
   },
   {
     path: 'login', component: LoginHomeComponent, children: [

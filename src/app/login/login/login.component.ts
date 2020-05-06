@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {TokenService} from '@harpokrat/api';
 
 @Component({
@@ -9,13 +9,18 @@ import {TokenService} from '@harpokrat/api';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private tokenService: TokenService, private router: Router) {
+  constructor(
+    private tokenService: TokenService,
+    private router: Router,
+    private readonly $activateRoute: ActivatedRoute,
+  ) {
   }
 
   ngOnInit() {
   }
 
   login() {
-    this.router.navigateByUrl('/app').then();
+    const route = this.$activateRoute.snapshot.queryParams['redirect'] || '/app';
+    this.router.navigateByUrl(route).then();
   }
 }

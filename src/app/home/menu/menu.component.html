@@ -1,7 +1,7 @@
 <div class="bg-dark h-100 menu text-center text-md-left d-flex flex-row flex-md-column">
-  <div class="bg-primary p-3 clickable">
+  <a class="bg-primary d-block p-3" routerLink="/">
     <img src="/assets/img/hpk-small.svg" alt="logo" class="menu-logo">
-  </div>
+  </a>
   <a [routerLink]="item.route" routerLinkActive="active" [title]="item.name"
     [routerLinkActiveOptions]="{exact: item.exact}" class="menu-item text-nowrap"
     *ngFor="let item of itemsList">

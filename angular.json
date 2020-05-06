@@ -29,8 +29,7 @@
             ],
             "styles": [
               "src/styles.scss",
-              "./node_modules/@harpokrat/bootstrap/scss/harpokrat-bootstrap.scss",
-              "./node_modules/font-awesome/css/font-awesome.css"
+              "./node_modules/@harpokrat/bootstrap/scss/harpokrat-bootstrap.scss"
             ],
             "scripts": [],
             "es5BrowserSupport": true
