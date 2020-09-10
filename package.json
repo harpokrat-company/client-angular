@@ -21,12 +21,15 @@
     "@angular/platform-browser": "~9.1.4",
     "@angular/platform-browser-dynamic": "~9.1.4",
     "@angular/router": "~9.1.4",
-    "@harpokrat/api": "^0.0.20",
+    "@harpokrat/api": "^0.0.38",
     "@harpokrat/bootstrap": "^0.1.5",
-    "@harpokrat/hcl": "0.0.18",
+    "@harpokrat/client": "^0.1.0",
+    "@harpokrat/hcl": "^0.1.20",
     "bootstrap": "^4.3.1",
     "core-js": "^2.5.4",
     "font-awesome": "^4.7.0",
+    "ng-click-outside": "^7.0.0",
+    "ng-recaptcha": "^5.0.0",
     "ngx-bootstrap": "^4.1.1",
     "rxjs": "~6.5.5",
     "tslib": "^1.10.0",
@@ -55,5 +58,8 @@
     "ts-node": "~7.0.0",
     "tslint": "~5.11.0",
     "typescript": "~3.8.3"
-  }
+  },
+  "whitelistedNonPeerDependencies": [
+    "."
+  ]
 }

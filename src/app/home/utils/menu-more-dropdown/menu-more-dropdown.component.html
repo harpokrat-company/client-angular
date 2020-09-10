@@ -1,0 +1,12 @@
+<div class="dropdown" *ngIf="options" (clickOutside)="open = false">
+    <span class="clickable px-2 list-item" (click)="open = !open">
+      <i class="material-icons small">more_vert</i>
+    </span>
+  <div class="dropdown-menu show" *ngIf="open">
+    <a *ngFor="let option of this.options" class="dropdown-item {{option.class}}"
+       [routerLink]="option.routerLink" [queryParams]="option.queryParams">
+      <i *ngIf="option.icon" class="material-icons mr-2 small">{{option.icon}}</i>
+      <span class="small">{{option.title}}</span>
+    </a>
+  </div>
+</div>

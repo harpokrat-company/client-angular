@@ -1,8 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {Resource, SecureAction, SecureActionService} from "@harpokrat/api";
+import {SecureActionService} from "@harpokrat/api";
 import {Observable} from "rxjs";
 import {ActivatedRoute} from "@angular/router";
 import {map, share, switchMap} from "rxjs/operators";
+import {ISecureActionResource} from "@harpokrat/client";
 
 @Component({
   selector: 'app-secure-action-page',
@@ -11,7 +12,7 @@ import {map, share, switchMap} from "rxjs/operators";
 })
 export class SecureActionPageComponent implements OnInit {
 
-  readonly secureActionObservable: Observable<Resource<SecureAction>>;
+  readonly secureActionObservable: Observable<ISecureActionResource>;
   readonly tokenObservable: Observable<string>;
 
   constructor(

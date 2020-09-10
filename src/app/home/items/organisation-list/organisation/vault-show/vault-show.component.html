@@ -1,0 +1,8 @@
+<div class="py-4 container" *ngIf="vaultObservable | async as vault">
+  <h1>{{vault.attributes.name}}</h1>
+  <ng-container *ngIf="secretObservable | async as secrets">
+    <ng-container *ngFor="let secret of secrets">
+      <span>{{secret.attributes.content}}</span>
+    </ng-container>
+  </ng-container>
+</div>

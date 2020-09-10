@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {User, UserService} from '@harpokrat/api';
+import {UserService} from '@harpokrat/api';
 import {Router} from '@angular/router';
 
 @Component({
@@ -16,6 +16,6 @@ export class RegisterComponent {
   }
 
   register() {
-    this.router.navigateByUrl('/login').then();
+    this.router.navigate(['/login']).then();
   }
 }

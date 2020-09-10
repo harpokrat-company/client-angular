@@ -15,7 +15,6 @@ import {PasswordDeleteComponent} from './home/items/password-list/password/passw
 import {PasswordDeleteFormComponent} from './home/utils/password-delete-form/password-delete-form.component';
 import {PasswordAddFormComponent} from './home/utils/password-add-form/password-add-form.component';
 import {PasswordEditFormComponent} from './home/utils/password-edit-form/password-edit-form.component';
-import {PassportViewerComponent} from './home/utils/passport-viewer/passport-viewer.component';
 import {HarpokratModule} from '@harpokrat/api';
 import {environment} from '../environments/environment';
 import {LoginHomeComponent} from './login/login-home.component';
@@ -25,12 +24,25 @@ import {ForgotPasswordComponent} from './login/forget-password/forgot-password.c
 import {ForgetPasswordFormComponent} from './login/forget-password/forget-password-form/forget-password-form.component';
 import {LandingComponent} from './landing/landing.component';
 import {LandingNavbarComponent} from './landing/landing-navbar/landing-navbar.component';
-import { LandingShortTextCardComponent } from './landing/landing-short-text-card/landing-short-text-card.component';
-import { LandingBigTextComponent } from './landing/landing-big-text/landing-big-text.component';
-import { LandingFaqComponent } from './landing/landing-faq/landing-faq.component';
-import { LandingFaqQuestionComponent } from './landing/landing-faq/landing-faq-question/landing-faq-question.component';
-import { SecureActionPageComponent } from './secure-action-page/secure-action-page.component';
-import { ProfileComponent } from './home/profile/profile.component';
+import {LandingShortTextCardComponent} from './landing/landing-short-text-card/landing-short-text-card.component';
+import {LandingBigTextComponent} from './landing/landing-big-text/landing-big-text.component';
+import {LandingFaqComponent} from './landing/landing-faq/landing-faq.component';
+import {LandingFaqQuestionComponent} from './landing/landing-faq/landing-faq-question/landing-faq-question.component';
+import {SecureActionPageComponent} from './secure-action-page/secure-action-page.component';
+import {ProfileComponent} from './home/profile/profile.component';
+import {OrganisationListComponent} from './home/items/organisation-list/organisation-list.component';
+import {GroupContentListComponent} from './home/items/organisation-list/group-content-list/group-content-list.component';
+import {OrganisationAddComponent} from './home/items/organisation-list/organisation/organisation-add/organisation-add.component';
+import {OrganisationDeleteComponent} from './home/items/organisation-list/organisation/organisation-delete/organisation-delete.component';
+import {ContentListComponent} from './home/items/organisation-list/organisation/content-list/content-list.component';
+import {MenuDropdownComponent} from './home/utils/menu-dropdown/menu-dropdown.component';
+import { GroupAddComponent } from './home/items/organisation-list/organisation/group-add/group-add.component';
+import { VaultAddComponent } from './home/items/organisation-list/organisation/vault-add/vault-add.component';
+import { GroupDeleteComponent } from './home/items/organisation-list/organisation/group-delete/group-delete.component';
+import {ClickOutsideModule} from "ng-click-outside";
+import { MenuMoreDropdownComponent } from './home/utils/menu-more-dropdown/menu-more-dropdown.component';
+import { VaultDeleteComponent } from './home/items/organisation-list/organisation/vault-delete/vault-delete.component';
+import { VaultShowComponent } from './home/items/organisation-list/organisation/vault-show/vault-show.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +59,6 @@ import { ProfileComponent } from './home/profile/profile.component';
     PasswordDeleteFormComponent,
     PasswordAddFormComponent,
     PasswordEditFormComponent,
-    PassportViewerComponent,
     LoginComponent,
     RegisterComponent,
     ForgotPasswordComponent,
@@ -59,13 +70,26 @@ import { ProfileComponent } from './home/profile/profile.component';
     LandingFaqComponent,
     LandingFaqQuestionComponent,
     SecureActionPageComponent,
-    ProfileComponent
+    ProfileComponent,
+    OrganisationListComponent,
+    GroupContentListComponent,
+    OrganisationAddComponent,
+    OrganisationDeleteComponent,
+    ContentListComponent,
+    MenuDropdownComponent,
+    GroupAddComponent,
+    VaultAddComponent,
+    GroupDeleteComponent,
+    MenuMoreDropdownComponent,
+    VaultDeleteComponent,
+    VaultShowComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    ClickOutsideModule,
     HarpokratModule.forRoot(
       environment.apiUrl, {loginRouterPath: '/login'}
     ),

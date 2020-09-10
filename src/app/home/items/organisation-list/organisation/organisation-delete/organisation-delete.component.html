@@ -1,0 +1,4 @@
+<div class="container p-4" *ngIf="organisationObservable | async as organisation">
+  <h1>Delete Organisation</h1>
+  <hpk-organisation-delete-form [organisation]="organisation"></hpk-organisation-delete-form>
+</div>

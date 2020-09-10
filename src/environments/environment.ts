@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://api.harpokrat.com/v1'
+  apiUrl: 'https://api.dev.harpokrat.com/v1/'
 };
 
 /*

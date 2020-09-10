@@ -1,0 +1,12 @@
+<div class="d-flex flex-row align-items-center">
+  <span class="flex-grow-1 d-flex flex-row align-items-center list-item clickable" [class.font-weight-bold]="open"
+        (click)="open = !open">
+    <i class="material-icons small mr-2">{{open ? iconOpen : iconClose}}</i>
+    <i *ngIf="icon" class="material-icons small mr-2">{{icon}}</i>
+    <span>{{title}}</span>
+  </span>
+  <app-menu-more-dropdown [options]="options" *ngIf="options"></app-menu-more-dropdown>
+</div>
+<div *ngIf="open" class="pl-3">
+  <ng-content></ng-content>
+</div>

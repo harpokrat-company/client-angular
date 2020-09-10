@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {Resource, SecretService} from "@harpokrat/api";
-import {Secret} from "@harpokrat/hcl";
+import {SecretService} from "@harpokrat/api";
 import {merge, Observable, of} from "rxjs";
+import {ISecretResource} from "@harpokrat/client";
 
 @Component({
   selector: 'app-password-list',
@@ -15,12 +15,12 @@ export class PasswordListComponent implements OnInit {
   ) {
   }
 
-  public secrets: Observable<Resource<Secret>[]>;
+  public secrets: Observable<ISecretResource[]>;
 
   public getPasswords() {
     this.secrets = merge(
       of([]),
-      this.secretService.getManyReadableSecrets({})
+      this.secretService.readAll({})
     );
   }
 

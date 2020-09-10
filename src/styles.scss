@@ -2,6 +2,8 @@
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 @import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
 
+@import "~@harpokrat/bootstrap/scss/harpokrat-bootstrap";
+
 .icon {
   font-family: 'Material Icons', sans-serif;
   font-weight: normal;
@@ -22,4 +24,30 @@
 
 .clickable {
   cursor: pointer;
+}
+
+.list {
+  background-color: $dark;
+
+  .list-title {
+    font-size: 1.5rem;
+    color: $gray-100;
+    padding-left: $spacer * 2;
+    padding-right: $spacer * 2;
+    margin-top: $spacer * 2;
+    margin-bottom: $spacer * 2;
+  }
+
+  .list-item {
+    display: block;
+    padding: $spacer / 4 $spacer * 2;
+    color: $gray-400;
+    transition: all .4s;
+
+    &.active {
+      background-color: $gray-900;
+      font-weight: bold;
+      color: $gray-100;
+    }
+  }
 }

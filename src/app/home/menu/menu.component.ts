@@ -21,6 +21,12 @@ export class MenuComponent {
       route: '/app/passwords',
       icon: 'lock',
       exact: false,
+    },
+    {
+      name: 'Organisations',
+      route: '/app/organisations',
+      icon: 'groups',
+      exact: false,
     }
   ];
 

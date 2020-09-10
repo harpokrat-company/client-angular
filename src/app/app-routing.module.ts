@@ -14,6 +14,14 @@ import {AuthGuard} from "@harpokrat/api";
 import {LandingComponent} from "./landing/landing.component";
 import {SecureActionPageComponent} from "./secure-action-page/secure-action-page.component";
 import {ProfileComponent} from "./home/profile/profile.component";
+import {OrganisationListComponent} from "./home/items/organisation-list/organisation-list.component";
+import {OrganisationAddComponent} from "./home/items/organisation-list/organisation/organisation-add/organisation-add.component";
+import {OrganisationDeleteComponent} from "./home/items/organisation-list/organisation/organisation-delete/organisation-delete.component";
+import {GroupAddComponent} from "./home/items/organisation-list/organisation/group-add/group-add.component";
+import {VaultAddComponent} from "./home/items/organisation-list/organisation/vault-add/vault-add.component";
+import {GroupDeleteComponent} from "./home/items/organisation-list/organisation/group-delete/group-delete.component";
+import {VaultDeleteComponent} from "./home/items/organisation-list/organisation/vault-delete/vault-delete.component";
+import {VaultShowComponent} from "./home/items/organisation-list/organisation/vault-show/vault-show.component";
 
 const routes: Routes = [
   {
@@ -42,9 +50,41 @@ const routes: Routes = [
           {path: ':id/delete', component: PasswordDeleteComponent},
           {path: ':id/show', component: PasswordShowComponent},
         ]
-      }
+      },
+      {
+        path: 'organisations', redirectTo: 'organisations/', pathMatch: 'full',
+      },
+      {
+        path: 'organisations/:id', component: OrganisationListComponent, children: [{
+          path: 'delete',
+          component: OrganisationDeleteComponent,
+        }, {
+          path: 'groups/add',
+          component: GroupAddComponent,
+        }, {
+          path: 'groups/:groupId',
+          children: [{
+            path: 'delete',
+            component: GroupDeleteComponent,
+          }, {
+            path: 'vaults/add',
+            component: VaultAddComponent,
+          }, {
+            path: 'vaults/:vaultId',
+            children: [{
+              path: 'show',
+              component: VaultShowComponent,
+            }, {
+              path: 'delete',
+              component: VaultDeleteComponent,
+            }]
+          }],
+        }, {
+          path: '**', component: OrganisationAddComponent,
+        }],
+      },
     ],
-  }
+  },
 ];
 
 @NgModule({

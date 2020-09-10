@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
-import {Resource, SecretService} from "@harpokrat/api";
+import {SecretService} from "@harpokrat/api";
 import {Observable} from "rxjs";
-import {Secret} from "@harpokrat/hcl";
+import {ISecretResource} from "@harpokrat/client";
 
 @Component({
   selector: 'app-password-show',
@@ -16,10 +16,10 @@ export class PasswordShowComponent implements OnInit {
               private secretService: SecretService) {
   }
 
-  public secret: Observable<Resource<Secret>>;
+  public secret: Observable<ISecretResource>;
 
   public getPassword(passwordId) {
-    this.secret = this.secretService.getReadableSecret(passwordId);
+    this.secret = this.secretService.read(passwordId);
   }
 
   ngOnInit() {

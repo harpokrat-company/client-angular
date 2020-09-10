@@ -1,0 +1,24 @@
+<div class="list">
+  <div class="border-left border-light">
+    <ng-container *ngIf="groupsObservable | async as groups">
+      <app-menu-dropdown *ngFor="let group of groups" title="{{group.attributes.name}}" iconOpen="folder_open"
+                         [options]="getOptions(group)"
+                         iconClose="folder">
+        <app-content-list [organisation]="organisation" [group]="group"></app-content-list>
+      </app-menu-dropdown>
+    </ng-container>
+    <ng-container *ngIf="group">
+      <ng-container *ngIf="vaultObservable | async as vaults">
+        <div *ngFor="let vault of vaults" class="d-flex flex-row align-items-center">
+          <a class="list-item flex-grow-1"
+            routerLink="/app/organisations/{{organisation.id}}/groups/{{group.id}}/vaults/{{vault.id}}/show"
+            routerLinkActive="active">
+            <i class="icon mr-2">account_balance</i>
+            <span>{{vault.attributes.name}}</span>
+          </a>
+          <app-menu-more-dropdown [options]="getVaultOptions(vault)"></app-menu-more-dropdown>
+        </div>
+      </ng-container>
+    </ng-container>
+  </div>
+</div>
