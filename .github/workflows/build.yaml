@@ -1,0 +1,21 @@
+name: Build
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: '14'
+      - name: Install dependencies
+        run: |
+          npm config //${{ secrets.NPM_REGISTRY }} ${{ secrets.NPM_AUTH_TOKEN }}
+          npm config registry:@harpokrat https://${{ secrets.NPM_REGISTRY }}
+          npm install
+      - name: Build
+        run: |
+          npm run build
