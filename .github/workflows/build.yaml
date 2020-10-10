@@ -13,7 +13,7 @@ jobs:
           node-version: '14'
       - name: Install dependencies
         run: |
-          npm config set @harpokat:registry https://${{ secrets.NPM_REGISTRY }}
+          npm config set @harpokrat:registry https://${{ secrets.NPM_REGISTRY }}
           npm config set //${{ secrets.NPM_REGISTRY }} ${{ secrets.NPM_AUTH_TOKEN }}
           npm install
       - name: Build
