@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {IGroupResource, IOrganizationResource, IVaultResource} from "@harpokrat/client";
 import {GroupService} from "@harpokrat/api";
-import {defer, Observable, of} from "rxjs";
+import {Observable, of} from "rxjs";
 import {IDropdownMenuOption} from "../../../../utils/menu-more-dropdown/menu-more-dropdown.component";
 import {EventService} from "../../../../../../services/event.service";
 import {switchMap} from "rxjs/operators";
@@ -56,6 +56,10 @@ export class ContentListComponent implements OnInit {
       'queryParams': {'parentId': group.id},
       'routerLink': '/app/organisations/' + this.organisation.id + '/groups/add'
     }, {
+      'title': 'Edit',
+      'icon': 'edit',
+      'routerLink': '/app/organisations/' + this.organisation.id + '/groups/' + group.id + '/edit'
+    }, {
       'title': 'Delete',
       'class': 'text-danger',
       'icon': 'delete',
@@ -65,6 +69,10 @@ export class ContentListComponent implements OnInit {
 
   getVaultOptions(vault: IVaultResource): IDropdownMenuOption[] {
     return [{
+      'title': 'Edit',
+      'icon': 'edit',
+      'routerLink': '/app/organisations/' + this.organisation.id + '/groups/' + this.group.id + '/vaults/' + vault.id + '/edit',
+    }, {
       'title': 'Delete',
       'class': 'text-danger',
       'icon': 'delete',

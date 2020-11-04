@@ -1,0 +1,14 @@
+<div class="bg-white shadow-sm p-3">
+  <h3 class="mb-3">Users</h3>
+  <hpk-user-list [users]="users" [allowRemove]="true" (remove)="onRemoveUser($event)"
+                 *ngIf="usersObservable | async as users; else spinner"></hpk-user-list>
+  <ng-template #spinner>
+    <div class="text-center">
+      <span class="spinner-border"></span>
+    </div>
+  </ng-template>
+  <hr/>
+  <div>
+    <app-add-user-form (save)="onAddUser($event)"></app-add-user-form>
+  </div>
+</div>

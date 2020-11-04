@@ -35,6 +35,10 @@ export class OrganisationListComponent implements OnInit {
       'icon': 'create_new_folder',
       'routerLink': '/app/organisations/' + organisation.id + '/groups/add'
     }, {
+      'title': 'Edit',
+      'icon': 'edit',
+      'routerLink': '/app/organisations/' + organisation.id + '/edit'
+    }, {
       'title': 'Delete',
       'class': 'text-danger',
       'icon': 'delete',

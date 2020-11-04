@@ -31,7 +31,6 @@ import {LandingFaqQuestionComponent} from './landing/landing-faq/landing-faq-que
 import {SecureActionPageComponent} from './secure-action-page/secure-action-page.component';
 import {ProfileComponent} from './home/profile/profile.component';
 import {OrganisationListComponent} from './home/items/organisation-list/organisation-list.component';
-import {GroupContentListComponent} from './home/items/organisation-list/group-content-list/group-content-list.component';
 import {OrganisationAddComponent} from './home/items/organisation-list/organisation/organisation-add/organisation-add.component';
 import {OrganisationDeleteComponent} from './home/items/organisation-list/organisation/organisation-delete/organisation-delete.component';
 import {ContentListComponent} from './home/items/organisation-list/organisation/content-list/content-list.component';
@@ -43,6 +42,13 @@ import {ClickOutsideModule} from "ng-click-outside";
 import { MenuMoreDropdownComponent } from './home/utils/menu-more-dropdown/menu-more-dropdown.component';
 import { VaultDeleteComponent } from './home/items/organisation-list/organisation/vault-delete/vault-delete.component';
 import { VaultShowComponent } from './home/items/organisation-list/organisation/vault-show/vault-show.component';
+import {HclwService} from "@harpokrat/hcl";
+import { OrganisationEditComponent } from './home/items/organisation-list/organisation/organisation-edit/organisation-edit.component';
+import { GroupEditComponent } from './home/items/organisation-list/organisation/group-edit/group-edit.component';
+import { VaultEditComponent } from './home/items/organisation-list/organisation/vault-edit/vault-edit.component';
+import {CommonModule} from "@angular/common";
+import { MemberListComponent } from './home/items/organisation-list/organisation/member-list/member-list.component';
+import { AddUserFormComponent } from './home/items/organisation-list/organisation/member-list/add-user-form/add-user-form.component';
 
 @NgModule({
   declarations: [
@@ -72,7 +78,6 @@ import { VaultShowComponent } from './home/items/organisation-list/organisation/
     SecureActionPageComponent,
     ProfileComponent,
     OrganisationListComponent,
-    GroupContentListComponent,
     OrganisationAddComponent,
     OrganisationDeleteComponent,
     ContentListComponent,
@@ -82,16 +87,22 @@ import { VaultShowComponent } from './home/items/organisation-list/organisation/
     GroupDeleteComponent,
     MenuMoreDropdownComponent,
     VaultDeleteComponent,
-    VaultShowComponent
+    VaultShowComponent,
+    OrganisationEditComponent,
+    GroupEditComponent,
+    VaultEditComponent,
+    MemberListComponent,
+    AddUserFormComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    CommonModule,
     FormsModule,
     ReactiveFormsModule,
     ClickOutsideModule,
     HarpokratModule.forRoot(
-      environment.apiUrl, {loginRouterPath: '/login'}
+      environment.apiUrl, {loginRouterPath: '/login'}, new HclwService(),
     ),
     HarpokratModule,
   ],

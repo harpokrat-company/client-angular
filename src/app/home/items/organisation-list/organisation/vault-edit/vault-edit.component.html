@@ -1,0 +1,6 @@
+<ng-container *ngIf="vaultObservable | async as vault">
+  <div class="container p-4" *ngIf="groupObservable | async as group">
+    <h1>Edit {{vault.attributes.name}}</h1>
+    <hpk-vault-form [group]="group" [vault]="vault" (create)="onCreate()"></hpk-vault-form>
+  </div>
+</ng-container>

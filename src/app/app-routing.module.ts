@@ -22,6 +22,9 @@ import {VaultAddComponent} from "./home/items/organisation-list/organisation/vau
 import {GroupDeleteComponent} from "./home/items/organisation-list/organisation/group-delete/group-delete.component";
 import {VaultDeleteComponent} from "./home/items/organisation-list/organisation/vault-delete/vault-delete.component";
 import {VaultShowComponent} from "./home/items/organisation-list/organisation/vault-show/vault-show.component";
+import {OrganisationEditComponent} from "./home/items/organisation-list/organisation/organisation-edit/organisation-edit.component";
+import {GroupEditComponent} from "./home/items/organisation-list/organisation/group-edit/group-edit.component";
+import {VaultEditComponent} from "./home/items/organisation-list/organisation/vault-edit/vault-edit.component";
 
 const routes: Routes = [
   {
@@ -59,11 +62,17 @@ const routes: Routes = [
           path: 'delete',
           component: OrganisationDeleteComponent,
         }, {
+          path: 'edit',
+          component: OrganisationEditComponent,
+        }, {
           path: 'groups/add',
           component: GroupAddComponent,
         }, {
           path: 'groups/:groupId',
           children: [{
+            path: 'edit',
+            component: GroupEditComponent,
+          }, {
             path: 'delete',
             component: GroupDeleteComponent,
           }, {
@@ -74,6 +83,9 @@ const routes: Routes = [
             children: [{
               path: 'show',
               component: VaultShowComponent,
+            }, {
+              path: 'edit',
+              component: VaultEditComponent,
             }, {
               path: 'delete',
               component: VaultDeleteComponent,

@@ -1,0 +1,9 @@
+<form *ngIf="formGroup" [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+  <div>
+    <label>Add User</label>
+    <div class="d-flex flex-row">
+      <hpk-user-search-input formControlName="email" class="flex-grow-1"></hpk-user-search-input>
+      <button class="btn btn-primary ml-3 btn-sm" [disabled]="formGroup.invalid">Add</button>
+    </div>
+  </div>
+</form>

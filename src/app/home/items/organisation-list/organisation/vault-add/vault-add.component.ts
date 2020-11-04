@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {IResourceIdentifier} from "@harpokrat/client";
 import {ActivatedRoute} from "@angular/router";
 import {EventService} from "../../../../../../services/event.service";
+import {Observable} from "rxjs";
+import {map} from "rxjs/operators";
 
 @Component({
   selector: 'app-vault-add',
@@ -10,7 +12,7 @@ import {EventService} from "../../../../../../services/event.service";
 })
 export class VaultAddComponent implements OnInit {
 
-  group: IResourceIdentifier;
+  groupObservable: Observable<IResourceIdentifier>;
 
   constructor(
     private readonly activatedRoute: ActivatedRoute,
@@ -19,12 +21,9 @@ export class VaultAddComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    const snapshot = this.activatedRoute.parent.snapshot;
-    const groupId = snapshot.params['groupId'];
-    this.group = {
-      type: 'groups',
-      id: groupId,
-    }
+    this.groupObservable = this.activatedRoute.parent.params.pipe(
+      map((p) => ({type: 'groups', id: p['groupId']}))
+    );
   }
 
   onCreate() {

@@ -1,0 +1,10 @@
+<div class="container p-4" *ngIf="organisationObservable | async as organisation">
+  <h1>Edit {{organisation.attributes.name}}</h1>
+  <hpk-organisation-form [organisation]="organisation" (create)="onCreate()"></hpk-organisation-form>
+  <div class="row">
+    <div class="col-12 col-lg-6">
+      <app-member-list [endpoint]="organizationService.endpoint" [resource]="organisation"
+                       relationship="members"></app-member-list>
+    </div>
+  </div>
+</div>

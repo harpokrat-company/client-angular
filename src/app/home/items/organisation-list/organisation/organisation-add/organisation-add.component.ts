@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {EventService} from "../../../../../../services/event.service";
+import {Router} from "@angular/router";
+import {IOrganizationResource} from "@harpokrat/client";
 
 @Component({
   selector: 'app-organisation-add',
@@ -10,14 +12,16 @@ export class OrganisationAddComponent implements OnInit {
 
   constructor(
     private readonly eventService: EventService,
+    private readonly router: Router,
   ) {
   }
 
   ngOnInit(): void {
   }
 
-  onCreate() {
+  async onCreate(organisation: IOrganizationResource) {
     this.eventService.organisationsChanged.next();
+    await this.router.navigate(['/app/organisations/' + organisation.id + '/edit'])
   }
 
 }
