@@ -1,5 +1,5 @@
 import {Component, Input, OnDestroy, OnInit} from '@angular/core';
-import {IEndpoint, IResource, IResourceEndpoint, IUser, IUserResource} from "@harpokrat/client";
+import {IResource, IResourceEndpoint, IUser, IUserResource} from "@harpokrat/client";
 import {BehaviorSubject, combineLatest, Observable, ReplaySubject, Subject} from "rxjs";
 import {map, shareReplay, switchMap, take} from "rxjs/operators";
 

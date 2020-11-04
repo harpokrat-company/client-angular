@@ -1,7 +1,7 @@
-import {Component, EventEmitter, forwardRef, OnInit, Output} from '@angular/core';
-import {FormBuilder, FormGroup, NG_VALUE_ACCESSOR, Validators} from "@angular/forms";
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {IUserResource} from "@harpokrat/client";
-import {UserService} from "../../../../../../../../../angular-library/dist/harpokrat";
+import {UserService} from "@harpokrat/api";
 
 @Component({
   selector: 'app-add-user-form',
