@@ -1,4 +1,4 @@
-<div class="bg-white shadow-sm p-3">
+<div class="bg-white shadow-sm p-3 mt-4">
   <h3 class="mb-3">Users</h3>
   <hpk-user-list [users]="users" [allowRemove]="true" (remove)="onRemoveUser($event)"
                  *ngIf="usersObservable | async as users; else spinner"></hpk-user-list>
@@ -9,6 +9,6 @@
   </ng-template>
   <hr/>
   <div>
-    <app-add-user-form (save)="onAddUser($event)"></app-add-user-form>
+    <app-add-user-form [suggestionEndpoint]="suggestionEndpoint" (save)="onAddUser($event)"></app-add-user-form>
   </div>
 </div>

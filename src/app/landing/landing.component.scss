@@ -6,3 +6,14 @@
   padding-top: 10vh;
   padding-bottom: 10vh;
 }
+
+.hero {
+  background-image: url("/assets/img/hero.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+}
+
+.overlay {
+  background-color: rgba(0, 0, 0, 0.8);
+}

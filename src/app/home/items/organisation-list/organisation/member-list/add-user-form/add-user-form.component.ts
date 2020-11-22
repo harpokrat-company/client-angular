@@ -1,7 +1,7 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {IUserResource} from "@harpokrat/client";
-import {UserService} from "@harpokrat/api";
+import {IUserEndpoint, IUserResource} from "@harpokrat/client";
+import {UserService} from "../../../../../../../harpokrat/src/lib/services/user.service";
 
 @Component({
   selector: 'app-add-user-form',
@@ -15,6 +15,8 @@ export class AddUserFormComponent implements OnInit {
   submitted: boolean;
 
   @Output() save = new EventEmitter<IUserResource>();
+
+  @Input() suggestionEndpoint: IUserEndpoint;
 
   constructor(
     private readonly fb: FormBuilder,

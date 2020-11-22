@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {AuthService} from "@harpokrat/api";
 import {Observable} from "rxjs";
+import {AuthService} from "../../../harpokrat/src/lib/services/auth.service";
 
 @Component({
   selector: 'app-landing-navbar',

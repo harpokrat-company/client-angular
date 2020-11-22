@@ -1,0 +1,28 @@
+<div *ngIf="renderSettingsObservable | async as settings">
+    <table class="table">
+      <thead>
+      <tr>
+        <th *ngIf="settings.showIndex">ID</th>
+        <th *ngFor="let column of settings.columns" (click)="setSort(settings.datasource, column.key)"
+            class="clickable text-truncate">
+          <i class="material-icons" *ngIf="settings.datasource.sort === column.key">
+            {{settings.datasource.sortDescending ? 'keyboard_arrow_up' : 'keyboard_arrow_down'}}
+          </i>
+          <span>{{column.name}}</span>
+        </th>
+      </tr>
+      <tr class="text-center" *ngIf="settings.datasource.loading">
+        <td [colSpan]="settings.columns.length + 1" class="text-center">
+          <span class="spinner-border"></span>
+        </td>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let row of settings.rows; let i = index">
+        <td *ngIf="settings.showIndex">{{settings.datasource.page * settings.datasource.size + i + 1}}</td>
+        <td *ngFor="let column of row" class="text-truncate">{{column}}</td>
+      </tr>
+      </tbody>
+    </table>
+  <hpk-pager [datasource]="settings.datasource"></hpk-pager>
+</div>

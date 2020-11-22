@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
-import {UserService} from '@harpokrat/api';
 import {Router} from '@angular/router';
+import {UserService} from "../../../harpokrat/src/lib/services/user.service";
 
 @Component({
   selector: 'app-register',

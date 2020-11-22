@@ -11,7 +11,7 @@
       <ng-container *ngIf="vaultObservable | async as vaults">
         <div *ngFor="let vault of vaults" class="d-flex flex-row align-items-center">
           <a class="list-item flex-grow-1"
-             routerLink="/app/organisations/{{organisation.id}}/groups/{{group.id}}/vaults/{{vault.id}}/show"
+             routerLink="/app/organisations/{{organisation.id}}/groups/{{group.id}}/vaults/{{vault.id}}"
              routerLinkActive="active">
             <i class="icon mr-2">account_balance</i>
             <span>{{vault.attributes.name}}</span>

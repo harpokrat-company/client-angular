@@ -10,7 +10,6 @@ import {PasswordDeleteComponent} from './home/items/password-list/password/passw
 import {LoginComponent} from './login/login/login.component';
 import {RegisterComponent} from './login/register/register.component';
 import {ForgotPasswordComponent} from './login/forget-password/forgot-password.component';
-import {AuthGuard} from "@harpokrat/api";
 import {LandingComponent} from "./landing/landing.component";
 import {SecureActionPageComponent} from "./secure-action-page/secure-action-page.component";
 import {ProfileComponent} from "./home/profile/profile.component";
@@ -25,6 +24,9 @@ import {VaultShowComponent} from "./home/items/organisation-list/organisation/va
 import {OrganisationEditComponent} from "./home/items/organisation-list/organisation/organisation-edit/organisation-edit.component";
 import {GroupEditComponent} from "./home/items/organisation-list/organisation/group-edit/group-edit.component";
 import {VaultEditComponent} from "./home/items/organisation-list/organisation/vault-edit/vault-edit.component";
+import {LogsComponent} from "./home/logs/logs.component";
+import {AuthGuard} from "../harpokrat/src/lib/guards/auth.guard";
+import {VaultPasswordShowComponent} from "./home/items/organisation-list/organisation/vault-password-show/vault-password-show.component";
 
 const routes: Routes = [
   {
@@ -44,6 +46,10 @@ const routes: Routes = [
     path: 'app', component: HomeComponent, canActivate: [AuthGuard], children: [
       {
         path: '', component: ProfileComponent
+      },
+      {
+        path: 'logs',
+        component: LogsComponent,
       },
       {
         path: 'passwords', component: PasswordListComponent, children: [
@@ -81,8 +87,11 @@ const routes: Routes = [
           }, {
             path: 'vaults/:vaultId',
             children: [{
-              path: 'show',
+              path: '',
               component: VaultShowComponent,
+            }, {
+              path: 'secrets/:secretId',
+              component: VaultPasswordShowComponent,
             }, {
               path: 'edit',
               component: VaultEditComponent,

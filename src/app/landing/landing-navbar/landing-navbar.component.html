@@ -2,12 +2,12 @@
   <img src="/assets/img/hpk.svg" class="navbar-logo">
   <div class="mx-auto"></div>
   <div *ngIf="authenticatedObservable | async; else logIn">
-    <button class="btn btn-link" (click)="onLogout()">Log Out</button>
+    <button class="btn btn-link text-light" (click)="onLogout()">Log Out</button>
     <a routerLink="/app" class="btn btn-primary ml-3">Dashboard</a>
   </div>
   <ng-template #logIn>
     <div>
-      <a routerLink="/login">Log In</a>
+      <a routerLink="/login" class="text-light">Log In</a>
       <a routerLink="/login/register" class="btn btn-primary ml-3">Register</a>
     </div>
   </ng-template>

@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {SecureActionService} from "@harpokrat/api";
 import {Observable} from "rxjs";
 import {ActivatedRoute} from "@angular/router";
 import {map, share, switchMap} from "rxjs/operators";
 import {ISecureActionResource} from "@harpokrat/client";
+import {SecureActionService} from "../../harpokrat/src/lib/services/secure-action.service";
 
 @Component({
   selector: 'app-secure-action-page',

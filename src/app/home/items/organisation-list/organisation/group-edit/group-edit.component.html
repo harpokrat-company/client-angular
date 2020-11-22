@@ -3,8 +3,8 @@
     <h1>Edit {{group.attributes.name}}</h1>
     <hpk-group-form [organisation]="organisation" [group]="group" (create)="onCreate()"></hpk-group-form>
     <div class="row">
-      <div class="col-12 col-lg-6">
-        <app-member-list [endpoint]="groupService.endpoint" [resource]="group"
+      <div class="col-12 col-lg-6" *ngIf="endpointObservable | async as endpoint">
+        <app-member-list [endpoint]="groupService.endpoint" [suggestionEndpoint]="endpoint" [resource]="group"
                          relationship="members"></app-member-list>
       </div>
     </div>

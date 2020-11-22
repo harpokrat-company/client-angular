@@ -1,6 +1,5 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
-
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {HomeComponent} from './home/home.component';
@@ -15,7 +14,7 @@ import {PasswordDeleteComponent} from './home/items/password-list/password/passw
 import {PasswordDeleteFormComponent} from './home/utils/password-delete-form/password-delete-form.component';
 import {PasswordAddFormComponent} from './home/utils/password-add-form/password-add-form.component';
 import {PasswordEditFormComponent} from './home/utils/password-edit-form/password-edit-form.component';
-import {HarpokratModule} from '@harpokrat/api';
+import {HarpokratModule} from '../harpokrat/src/public_api';
 import {environment} from '../environments/environment';
 import {LoginHomeComponent} from './login/login-home.component';
 import {LoginComponent} from './login/login/login.component';
@@ -35,20 +34,21 @@ import {OrganisationAddComponent} from './home/items/organisation-list/organisat
 import {OrganisationDeleteComponent} from './home/items/organisation-list/organisation/organisation-delete/organisation-delete.component';
 import {ContentListComponent} from './home/items/organisation-list/organisation/content-list/content-list.component';
 import {MenuDropdownComponent} from './home/utils/menu-dropdown/menu-dropdown.component';
-import { GroupAddComponent } from './home/items/organisation-list/organisation/group-add/group-add.component';
-import { VaultAddComponent } from './home/items/organisation-list/organisation/vault-add/vault-add.component';
-import { GroupDeleteComponent } from './home/items/organisation-list/organisation/group-delete/group-delete.component';
+import {GroupAddComponent} from './home/items/organisation-list/organisation/group-add/group-add.component';
+import {VaultAddComponent} from './home/items/organisation-list/organisation/vault-add/vault-add.component';
+import {GroupDeleteComponent} from './home/items/organisation-list/organisation/group-delete/group-delete.component';
 import {ClickOutsideModule} from "ng-click-outside";
-import { MenuMoreDropdownComponent } from './home/utils/menu-more-dropdown/menu-more-dropdown.component';
-import { VaultDeleteComponent } from './home/items/organisation-list/organisation/vault-delete/vault-delete.component';
-import { VaultShowComponent } from './home/items/organisation-list/organisation/vault-show/vault-show.component';
-import {HclwService} from "@harpokrat/hcl";
-import { OrganisationEditComponent } from './home/items/organisation-list/organisation/organisation-edit/organisation-edit.component';
-import { GroupEditComponent } from './home/items/organisation-list/organisation/group-edit/group-edit.component';
-import { VaultEditComponent } from './home/items/organisation-list/organisation/vault-edit/vault-edit.component';
+import {MenuMoreDropdownComponent} from './home/utils/menu-more-dropdown/menu-more-dropdown.component';
+import {VaultDeleteComponent} from './home/items/organisation-list/organisation/vault-delete/vault-delete.component';
+import {VaultShowComponent} from './home/items/organisation-list/organisation/vault-show/vault-show.component';
+import {OrganisationEditComponent} from './home/items/organisation-list/organisation/organisation-edit/organisation-edit.component';
+import {GroupEditComponent} from './home/items/organisation-list/organisation/group-edit/group-edit.component';
+import {VaultEditComponent} from './home/items/organisation-list/organisation/vault-edit/vault-edit.component';
 import {CommonModule} from "@angular/common";
-import { MemberListComponent } from './home/items/organisation-list/organisation/member-list/member-list.component';
-import { AddUserFormComponent } from './home/items/organisation-list/organisation/member-list/add-user-form/add-user-form.component';
+import {MemberListComponent} from './home/items/organisation-list/organisation/member-list/member-list.component';
+import {AddUserFormComponent} from './home/items/organisation-list/organisation/member-list/add-user-form/add-user-form.component';
+import { LogsComponent } from './home/logs/logs.component';
+import { VaultPasswordShowComponent } from './home/items/organisation-list/organisation/vault-password-show/vault-password-show.component';
 
 @NgModule({
   declarations: [
@@ -92,7 +92,9 @@ import { AddUserFormComponent } from './home/items/organisation-list/organisatio
     GroupEditComponent,
     VaultEditComponent,
     MemberListComponent,
-    AddUserFormComponent
+    AddUserFormComponent,
+    LogsComponent,
+    VaultPasswordShowComponent
   ],
   imports: [
     BrowserModule,
@@ -102,7 +104,7 @@ import { AddUserFormComponent } from './home/items/organisation-list/organisatio
     ReactiveFormsModule,
     ClickOutsideModule,
     HarpokratModule.forRoot(
-      environment.apiUrl, {loginRouterPath: '/login'}, new HclwService(),
+      environment.apiUrl, {loginRouterPath: '/login'},
     ),
     HarpokratModule,
   ],

@@ -2,8 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {IOrganizationResource, IResourceIdentifier} from "@harpokrat/client";
 import {ActivatedRoute} from "@angular/router";
 import {switchMap} from "rxjs/operators";
-import {OrganizationService} from "@harpokrat/api";
 import {Observable} from "rxjs";
+import {OrganizationService} from "../../../../../../harpokrat/src/lib/services/organization.service";
 
 @Component({
   selector: 'app-organisation-delete',

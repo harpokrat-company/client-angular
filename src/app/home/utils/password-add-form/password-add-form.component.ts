@@ -1,6 +1,7 @@
-import {Component, EventEmitter, Output} from '@angular/core';
-import {TempService} from '../../../../services/temp.service';
-import {SecretService} from '@harpokrat/api';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {SecretService} from "../../../../harpokrat/src/lib/services/secret.service";
+import {TempService} from "../../../../services/temp.service";
+import {IVaultResource} from "@harpokrat/client";
 
 @Component({
   selector: 'app-password-add-form',
@@ -13,6 +14,8 @@ export class PasswordAddFormComponent {
   @Output() success: EventEmitter<number> = new EventEmitter();
   @Output() canceled: EventEmitter<boolean> = new EventEmitter();
   @Output() submited: EventEmitter<boolean> = new EventEmitter();
+
+  @Input() vault: IVaultResource;
 
   constructor(private tempService: TempService,
               private passwordService: SecretService) {

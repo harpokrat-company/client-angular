@@ -1,10 +1,11 @@
 import {Component, OnInit} from '@angular/core';
-import {IGroupResource, IResourceIdentifier} from "@harpokrat/client";
+import {IEndpoint, IGroupResource, IResourceIdentifier, IUserEndpoint} from "@harpokrat/client";
 import {ActivatedRoute} from "@angular/router";
 import {EventService} from "../../../../../../services/event.service";
 import {Observable} from "rxjs";
-import {GroupService} from "@harpokrat/api";
 import {map, switchMap} from "rxjs/operators";
+import {GroupService} from "../../../../../../harpokrat/src/lib/services/group.service";
+import {ApiService} from "../../../../../../harpokrat/src/lib/services/api.service";
 
 @Component({
   selector: 'app-group-edit',
@@ -17,9 +18,12 @@ export class GroupEditComponent implements OnInit {
 
   groupObservable: Observable<IGroupResource>;
 
+  endpointObservable: Observable<IUserEndpoint>;
+
   constructor(
     private readonly activatedRoute: ActivatedRoute,
     private readonly eventService: EventService,
+    private readonly apiService: ApiService,
     readonly groupService: GroupService,
   ) {
   }
@@ -30,6 +34,9 @@ export class GroupEditComponent implements OnInit {
         type: 'organizations',
         id: p['id']
       })));
+    this.endpointObservable = this.organisationObservable.pipe(
+      map((org) => this.apiService.client.organizations.resource(org.id, 'members'))
+    );
     this.groupObservable = this.eventService.groupsChanged.pipe(
       switchMap(() => this.activatedRoute.parent.params),
       switchMap((p) => this.groupService.read(p['groupId'])),

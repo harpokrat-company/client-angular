@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
-import {AuthService} from "@harpokrat/api";
 import {Router} from "@angular/router";
+import {AuthService} from "../../../harpokrat/src/lib/services/auth.service";
 
 @Component({
   selector: 'app-menu',
@@ -26,6 +26,12 @@ export class MenuComponent {
       name: 'Organisations',
       route: '/app/organisations',
       icon: 'groups',
+      exact: false,
+    },
+    {
+      name: 'Logs',
+      route: '/app/logs',
+      icon: 'event_note',
       exact: false,
     }
   ];

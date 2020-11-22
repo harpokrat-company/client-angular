@@ -2,8 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {Observable} from "rxjs";
 import {IVaultResource} from "@harpokrat/client";
 import {ActivatedRoute} from "@angular/router";
-import {VaultService} from "@harpokrat/api";
 import {switchMap} from "rxjs/operators";
+import {VaultService} from "../../../../../../harpokrat/src/lib/services/vault.service";
 
 @Component({
   selector: 'app-vault-delete',

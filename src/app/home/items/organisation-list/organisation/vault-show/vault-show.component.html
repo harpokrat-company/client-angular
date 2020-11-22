@@ -1,8 +1,29 @@
 <div class="py-4 container" *ngIf="vaultObservable | async as vault">
-  <h1>{{vault.attributes.name}}</h1>
-  <ng-container *ngIf="secretObservable | async as secrets">
-    <ng-container *ngFor="let secret of secrets">
-      <span>{{secret.attributes.content}}</span>
+  <h1 class="mb-5">{{vault.attributes.name}}</h1>
+  <small *ngIf="encryptionKeyObservable | async as e">{{e}}</small>
+  <div class="bg-white shadow-sm p-4">
+    <h4>Secrets</h4>
+    <ng-container *ngIf="secretObservable | async as secrets ; else loading">
+      <ng-container *ngFor="let secret of secrets">
+        <div class="mt-3">
+          <a routerLink="secrets/{{secret.secret.id}}">{{secret.password.GetName()}}</a>
+        </div>
+      </ng-container>
+      <div *ngIf="secrets.length === 0">
+        <small class="mt-3 font-italic">There is no secret in this vault</small>
+      </div>
     </ng-container>
-  </ng-container>
+  </div>
+  <ng-template #loading>
+    <span class="spinner-border"></span>
+  </ng-template>
+  <hr/>
+  <div class="row">
+    <div class="col-12 col-xl-8">
+      <div class="bg-white shadow-sm p-4">
+        <h4>New Secret</h4>
+        <hpk-secret-form [vault]="vault" (create)="onCreate()"></hpk-secret-form>
+      </div>
+    </div>
+  </div>
 </div>

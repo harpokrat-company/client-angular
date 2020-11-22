@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {Observable} from "rxjs";
 import {IGroupResource} from "@harpokrat/client";
-import {GroupService} from "@harpokrat/api";
 import {ActivatedRoute} from "@angular/router";
 import {switchMap} from "rxjs/operators";
+import {GroupService} from "../../../../../../harpokrat/src/lib/services/group.service";
 
 @Component({
   selector: 'app-group-delete',

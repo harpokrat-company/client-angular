@@ -2,9 +2,9 @@ import {Component, OnInit} from '@angular/core';
 import {Observable} from "rxjs";
 import {IOrganizationResource, IUser} from "@harpokrat/client";
 import {ActivatedRoute} from "@angular/router";
-import {OrganizationService} from "@harpokrat/api";
 import {map, switchMap} from "rxjs/operators";
 import {EventService} from "../../../../../../services/event.service";
+import {OrganizationService} from "../../../../../../harpokrat/src/lib/services/organization.service";
 
 @Component({
   selector: 'app-organisation-edit',

@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
-import {SecretService} from "@harpokrat/api";
 import {Observable} from "rxjs";
 import {ISecretResource} from "@harpokrat/client";
+import {SecretService} from "../../../../../../harpokrat/src/lib/services/secret.service";
 
 @Component({
   selector: 'app-password-show',

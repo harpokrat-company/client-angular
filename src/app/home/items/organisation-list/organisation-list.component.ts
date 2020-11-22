@@ -1,10 +1,11 @@
 import {Component, OnInit} from '@angular/core';
-import {AuthService, OrganizationService} from "@harpokrat/api";
 import {defer, Observable} from "rxjs";
 import {IOrganizationResource, IResourceIdentifier} from "@harpokrat/client";
 import {IDropdownMenuOption} from "../../utils/menu-more-dropdown/menu-more-dropdown.component";
 import {EventService} from "../../../../services/event.service";
 import {switchMap} from "rxjs/operators";
+import {OrganizationService} from "../../../../harpokrat/src/lib/services/organization.service";
+import {AuthService} from "../../../../harpokrat/src/lib/services/auth.service";
 
 @Component({
   selector: 'app-organisation-list',

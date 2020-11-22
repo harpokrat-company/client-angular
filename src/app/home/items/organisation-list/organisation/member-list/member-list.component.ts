@@ -1,5 +1,5 @@
 import {Component, Input, OnDestroy, OnInit} from '@angular/core';
-import {IResource, IResourceEndpoint, IUser, IUserResource} from "@harpokrat/client";
+import {IResource, IResourceEndpoint, IUser, IUserEndpoint, IUserResource} from "@harpokrat/client";
 import {BehaviorSubject, combineLatest, Observable, ReplaySubject, Subject} from "rxjs";
 import {map, shareReplay, switchMap, take} from "rxjs/operators";
 
@@ -18,6 +18,8 @@ export class MemberListComponent implements OnInit, OnDestroy {
   usersObservable: Observable<IUserResource[]>;
   subEndpointObservable: Observable<IResourceEndpoint<IUser>>;
   relationshipEndpointObservable: Observable<IResourceEndpoint<void>>;
+
+  @Input() suggestionEndpoint: IUserEndpoint;
 
   @Input() set resource(value: IResource) {
     this.resourceSubject.next(value);

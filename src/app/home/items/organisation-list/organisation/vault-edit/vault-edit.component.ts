@@ -2,9 +2,10 @@ import {Component, OnInit} from '@angular/core';
 import {Observable} from "rxjs";
 import {IOrganizationResource, IResourceIdentifier, IVaultResource} from "@harpokrat/client";
 import {ActivatedRoute} from "@angular/router";
-import {GroupService, OrganizationService, VaultService} from "@harpokrat/api";
 import {EventService} from "../../../../../../services/event.service";
 import {map, switchMap} from "rxjs/operators";
+import {GroupService} from "../../../../../../harpokrat/src/lib/services/group.service";
+import {VaultService} from "../../../../../../harpokrat/src/lib/services/vault.service";
 
 @Component({
   selector: 'app-vault-edit',

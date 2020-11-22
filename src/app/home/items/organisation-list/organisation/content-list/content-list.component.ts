@@ -1,10 +1,10 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {IGroupResource, IOrganizationResource, IVaultResource} from "@harpokrat/client";
-import {GroupService} from "@harpokrat/api";
 import {Observable, of} from "rxjs";
 import {IDropdownMenuOption} from "../../../../utils/menu-more-dropdown/menu-more-dropdown.component";
 import {EventService} from "../../../../../../services/event.service";
 import {switchMap} from "rxjs/operators";
+import {GroupService} from "../../../../../../harpokrat/src/lib/services/group.service";
 
 @Component({
   selector: 'app-content-list',
