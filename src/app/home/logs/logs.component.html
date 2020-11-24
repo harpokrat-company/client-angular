@@ -1,0 +1,6 @@
+<div class="container py-4">
+  <h1 class="mb-5">Logs</h1>
+  <div *ngIf="logsObservable | async as logs" class="bg-white p-4 shadow-sm">
+    <div *ngFor="let log of logs">{{log.id}}</div>
+  </div>
+</div>
