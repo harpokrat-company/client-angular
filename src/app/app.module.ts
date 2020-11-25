@@ -49,6 +49,7 @@ import {MemberListComponent} from './home/items/organisation-list/organisation/m
 import {AddUserFormComponent} from './home/items/organisation-list/organisation/member-list/add-user-form/add-user-form.component';
 import { LogsComponent } from './home/logs/logs.component';
 import { VaultPasswordShowComponent } from './home/items/organisation-list/organisation/vault-password-show/vault-password-show.component';
+import { LogCardComponent } from './home/logs/log-card/log-card.component';
 
 @NgModule({
   declarations: [
@@ -94,7 +95,8 @@ import { VaultPasswordShowComponent } from './home/items/organisation-list/organ
     MemberListComponent,
     AddUserFormComponent,
     LogsComponent,
-    VaultPasswordShowComponent
+    VaultPasswordShowComponent,
+    LogCardComponent
   ],
   imports: [
     BrowserModule,

@@ -19,7 +19,11 @@ export class LogsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.logsObservable = defer(() => this.userService.endpoint.resource((this.authService.currentUser as IResourceIdentifier).id, 'logs').readMany());
+    this.logsObservable = defer(() => this.userService.endpoint.resource((this.authService.currentUser as IResourceIdentifier).id, 'logs').readMany({
+      page: 1,
+      size: 20,
+      sort: 'date',
+    }));
   }
 
 }
