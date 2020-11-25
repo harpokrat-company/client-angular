@@ -78,7 +78,7 @@ export class MemberListComponent implements OnInit, OnDestroy {
     this.relationshipEndpointObservable.pipe(
       take(1)
     ).subscribe(async (endpoint) => {
-      await endpoint.delete(user.id);
+      await endpoint.delete([user] as any);
       this.refreshSubject.next();
     });
   }

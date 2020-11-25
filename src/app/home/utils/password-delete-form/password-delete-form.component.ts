@@ -1,5 +1,6 @@
-import {Component, EventEmitter, Input,  Output} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {TempService} from '../../../../services/temp.service';
+import {EventService} from "../../../../services/event.service";
 
 @Component({
   selector: 'app-password-delete-form',
@@ -13,7 +14,11 @@ export class PasswordDeleteFormComponent {
   @Output() canceled: EventEmitter<boolean> = new EventEmitter();
   @Output() submitted: EventEmitter<boolean> = new EventEmitter();
 
-  constructor(private tempService: TempService) { }
+  constructor(private tempService: TempService, private readonly eventService: EventService) {
+  }
+
+  onSubmit() {
+  }
 
   public onCancel() {
     this.canceled.emit(true);
@@ -23,12 +28,14 @@ export class PasswordDeleteFormComponent {
   public onSuccess(password) {
     this.success.emit(password);
     this.submitted.emit(true);
+    this.eventService.passwordsChanged.next();
   }
 
   public save(event: any) {
     this.tempService.delPassword(this.password.id).subscribe(
       password => this.onSuccess(password),
-      error => { /* TODO */ },
+      error => { /* TODO */
+      },
     );
   }
 

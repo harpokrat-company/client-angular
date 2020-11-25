@@ -3,6 +3,7 @@ import {IResource, IPassword, ISecret, ISecretResource, IVault} from '@harpokrat
 import {BehaviorSubject, Observable, ReplaySubject} from "rxjs";
 import {ApiService} from "../../services/api.service";
 import {switchMap} from "rxjs/operators";
+import {EventService} from "../../../../../services/event.service";
 
 enum SecretStatus {
   VIEW = 0,
@@ -30,6 +31,7 @@ export class SecretComponent implements OnInit {
 
   constructor(
     private readonly apiService: ApiService,
+    private readonly eventService: EventService,
   ) {
     this.secretResource = new ReplaySubject<ISecretResource>();
     this.password = this.secretResource.pipe(
@@ -42,6 +44,10 @@ export class SecretComponent implements OnInit {
         };
       }),
     );
+  }
+
+  onChange() {
+    this.eventService.passwordsChanged.next();
   }
 
   ngOnInit(): void {

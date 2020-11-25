@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {TempService} from '../../../../../../services/temp.service';
+import {EventService} from "../../../../../../services/event.service";
 
 @Component({
   selector: 'app-password-delete',
@@ -10,7 +11,8 @@ import {TempService} from '../../../../../../services/temp.service';
 export class PasswordDeleteComponent implements OnInit {
   constructor(private route: ActivatedRoute,
               private router: Router,
-              private tempService: TempService) {
+              private tempService: TempService,
+              private readonly eventService: EventService) {
   }
 
   public $password;
@@ -26,6 +28,7 @@ export class PasswordDeleteComponent implements OnInit {
   }
 
   public toList() {
+    this.eventService.passwordsChanged.next();
     this.router.navigate(['../..'], {relativeTo: this.route}).then();
   }
 

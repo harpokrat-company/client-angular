@@ -3,6 +3,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {Observable} from "rxjs";
 import {ISecretResource} from "@harpokrat/client";
 import {SecretService} from "../../../../../../harpokrat/src/lib/services/secret.service";
+import {EventService} from "../../../../../../services/event.service";
 
 @Component({
   selector: 'app-password-show',
@@ -13,7 +14,8 @@ export class PasswordShowComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
               private router: Router,
-              private secretService: SecretService) {
+              private secretService: SecretService,
+              private readonly eventService: EventService) {
   }
 
   public secret: Observable<ISecretResource>;

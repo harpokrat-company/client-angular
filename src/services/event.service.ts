@@ -10,11 +10,13 @@ export class EventService {
   groupsChanged: Subject<void>;
   vaultsChanged: Subject<void>;
   organisationsChanged: Subject<void>;
+  passwordsChanged: Subject<void>;
 
   constructor() {
     this.vaultSecretsChanged = new BehaviorSubject(null);
     this.organisationsChanged = new BehaviorSubject(null);
     this.vaultsChanged = new BehaviorSubject(null);
     this.groupsChanged = new BehaviorSubject(null);
+    this.passwordsChanged = new BehaviorSubject(null);
   }
 }

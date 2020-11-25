@@ -7,6 +7,7 @@ import {AuthService} from "../../../../harpokrat/src/lib/services/auth.service";
 import {map, shareReplay, switchMap} from "rxjs/operators";
 import {VaultService} from "../../../../harpokrat/src/lib/services/vault.service";
 import {ApiService} from "../../../../harpokrat/src/lib/services/api.service";
+import {EventService} from "../../../../services/event.service";
 
 export interface IWrappedPassword {
   secret: ISecretResource;
@@ -27,16 +28,18 @@ export class PasswordListComponent implements OnInit {
     private readonly vaultService: VaultService,
     private readonly authService: AuthService,
     private readonly apiService: ApiService,
+    private readonly eventsService: EventService,
   ) {
   }
 
   public secrets: Observable<IWrappedPassword[]>;
 
   public getPasswords() {
-    this.secrets = defer(() => this.userService.endpoint.resource(this.authService.currentUser.id, 'vaults').readMany({
-      size: 1,
-      page: 1,
-    })).pipe(
+    this.secrets = this.eventsService.passwordsChanged.pipe(
+      switchMap(() => defer(() => this.userService.endpoint.resource(this.authService.currentUser.id, 'vaults').readMany({
+        size: 1,
+        page: 1,
+      }))),
       map(([v]) => v),
       switchMap((v) => {
         if (v) {

@@ -112,7 +112,6 @@ export class LoginFormComponent implements OnInit {
           }).subscribe();
         });
       }, (err) => {
-        console.error(err);
         this.error = 'Invalid email/password';
         this.loading = false;
       },

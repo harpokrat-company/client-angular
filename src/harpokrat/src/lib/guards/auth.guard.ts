@@ -23,9 +23,10 @@ export class AuthGuard implements CanActivate {
     return this.authService.authenticatedObservable.pipe(
       switchMap(async (isLoggedIn) => {
         if (!isLoggedIn) {
+          console.log(state.url.includes('/login'));
           await this.router.navigate([this.loginRouterPath], {
             queryParams: {
-              redirect: state.url,
+              redirect: state.url.includes('/login') ? null : state.url,
             }
           });
           return false;

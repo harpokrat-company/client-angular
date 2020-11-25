@@ -27,7 +27,11 @@ export class TokenInterceptor implements HttpInterceptor {
     }, async (err: HttpErrorResponse) => {
       if (err.status === 401) {
         this.authService.token = null;
-        await this.router.navigate([this.loginRouterPath], {queryParams: {'redirect': this.router.url}});
+        await this.router.navigate([this.loginRouterPath], {
+          queryParams: {
+            'redirect': this.router.url.includes('/login') ? null : this.router.url,
+          }
+        });
       }
     }));
   }

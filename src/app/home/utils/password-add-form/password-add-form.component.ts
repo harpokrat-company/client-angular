@@ -1,6 +1,5 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
-import {SecretService} from "../../../../harpokrat/src/lib/services/secret.service";
-import {TempService} from "../../../../services/temp.service";
+import {Component, Input} from '@angular/core';
+import {EventService} from "../../../../services/event.service";
 import {IVaultResource} from "@harpokrat/client";
 
 @Component({
@@ -9,34 +8,13 @@ import {IVaultResource} from "@harpokrat/client";
   styleUrls: ['./password-add-form.component.scss']
 })
 export class PasswordAddFormComponent {
-  password = {};
-
-  @Output() success: EventEmitter<number> = new EventEmitter();
-  @Output() canceled: EventEmitter<boolean> = new EventEmitter();
-  @Output() submited: EventEmitter<boolean> = new EventEmitter();
 
   @Input() vault: IVaultResource;
 
-  constructor(private tempService: TempService,
-              private passwordService: SecretService) {
+  constructor(private readonly eventService: EventService) {
   }
 
-  public onCancel() {
-    this.canceled.emit(true);
-    this.submited.emit(true);
-  }
-
-  public onSuccess(password) {
-    this.success.emit(password);
-    this.submited.emit(true);
-  }
-
-  public save(event: any) {
-    this.tempService.addPassword(event).subscribe(
-      password => this.onSuccess(password),
-      error => { /* TODO */
-      },
-    );
-    this.password = {};
+  onSubmit() {
+    this.eventService.passwordsChanged.next();
   }
 }
